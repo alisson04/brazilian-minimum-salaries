@@ -1,19 +1,27 @@
-<script setup>
-  import Chart from 'chart.js/auto';
-  import BarChart from '@/components/charts/BarChart.vue'
-  import datasetSalaries from '@/assets/datasets/minimumSalariesReal.json';
+<script>
+import datasetSalaries from '@/assets/datasets/minimumSalariesReal.json'
 
-  const data = {
-    labels: Object.keys(datasetSalaries),
-    datasets: [{
-      label: 'Reais R$',
-      data: Object.values(datasetSalaries),
-      borderWidth: 1
-    }]
-  };
+export default {
+  name: 'App',
+  data() {
+    return {
+      data: {
+        labels: Object.keys(datasetSalaries),
+        datasets: [
+          {
+            label: 'Reais R$',
+            data: Object.values(datasetSalaries),
+            borderWidth: 1
+          }
+        ]
+      }
+    }
+  }
+}
 </script>
 
 <template>
+  123
   <BarChart :data="data" />
 </template>
 

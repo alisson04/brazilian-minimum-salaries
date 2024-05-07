@@ -1,5 +1,7 @@
-<script setup>
-  import MinimumSalaryReal from './components/MinimumSalaryReal.vue'
+<script>
+export default {
+  name: 'App'
+}
 </script>
 
 <template>

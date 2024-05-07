@@ -1,10 +1,10 @@
 <script>
-import Chart from 'chart.js/auto';
+import Chart from 'chart.js/auto'
 
 export default {
   props: ['data'],
   mounted() {
-    const ctx = document.getElementById('barChart');
+    const ctx = document.getElementById('barChart')
 
     new Chart(ctx, {
       type: 'bar',
@@ -16,7 +16,7 @@ export default {
           }
         }
       }
-    });
+    })
   }
 }
 </script>
