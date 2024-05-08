@@ -2,9 +2,9 @@
 import Chart from 'chart.js/auto'
 
 export default {
-  props: ['data'],
+  props: ['chartId', 'data'],
   mounted() {
-    const ctx = document.getElementById('barChart')
+    const ctx = document.getElementById(this.chartId)
 
     new Chart(ctx, {
       type: 'bar',
@@ -22,7 +22,7 @@ export default {
 </script>
 
 <template>
-  <canvas id="barChart"></canvas>
+  <canvas :id="chartId"></canvas>
 </template>
 
 <style scoped></style>

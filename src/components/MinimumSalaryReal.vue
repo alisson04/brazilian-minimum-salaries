@@ -2,7 +2,7 @@
 import datasetSalaries from '@/assets/datasets/minimumSalariesReal.json'
 
 export default {
-  name: 'App',
+  name: 'MinimumSalaryReal',
   data() {
     return {
       data: {
@@ -21,8 +21,7 @@ export default {
 </script>
 
 <template>
-  123
-  <BarChart :data="data" />
+  <BarChart :chartId="$options.name" :data="data" />
 </template>
 
 <style scoped></style>
