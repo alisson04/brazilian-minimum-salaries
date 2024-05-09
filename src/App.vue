@@ -11,6 +11,7 @@ export default {
 
   <main>
     <MinimumSalaryReal />
+    <br />
     <MinimumSalaryRealPercentage />
   </main>
 </template>

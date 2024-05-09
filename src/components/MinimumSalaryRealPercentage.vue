@@ -39,7 +39,9 @@ export default {
 </script>
 
 <template>
-  <BarChart :chartId="$options.name" :data="data" />
+  <DefaultCard :title="'Crescimento em relação ao ano anterior'">
+    <BarChart :chartId="$options.name" :data="data" />
+  </DefaultCard>
 </template>
 
 <style scoped></style>

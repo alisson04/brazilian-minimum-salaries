@@ -21,7 +21,9 @@ export default {
 </script>
 
 <template>
-  <BarChart :chartId="$options.name" :data="data" />
+  <DefaultCard :title="'Salário Mínimo R$'">
+    <BarChart :chartId="$options.name" :data="data" />
+  </DefaultCard>
 </template>
 
 <style scoped></style>
