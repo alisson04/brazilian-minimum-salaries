@@ -22,8 +22,8 @@ export default {
       let percentages = []
       const salaries = Object.values(datasetSalaries)
 
-      for (let i = 1; i <= salaries.length; i++) {
-        if (i === 1) {
+      for (let i = 0; i < salaries.length; i++) {
+        if (i === 0) {
           percentages.push(0)
         } else {
           const percentage = ((salaries[i] - salaries[i - 1]) / salaries[i - 1]) * 100
