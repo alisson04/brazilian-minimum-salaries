@@ -1,5 +1,6 @@
 <script>
 import datasetSalaries from '@/assets/datasets/minimumSalariesReal.json'
+import currency from 'currency.js'
 
 export default {
   name: 'MinimumSalaryRealAverageGrowth',
@@ -38,7 +39,7 @@ export default {
       const sum = percentages.reduce((ac, cv) => ac + cv, 0)
       const totalYearsWithoutTheFirstYear = percentages.length - 1
 
-      return sum / totalYearsWithoutTheFirstYear
+      return currency(sum / totalYearsWithoutTheFirstYear).value
     },
     getSalariesWithProjection() {
       const years = Object.keys(datasetSalaries).map((str) => parseInt(str))
