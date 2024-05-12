@@ -63,7 +63,7 @@ export default {
 
 <template>
   <DefaultCard
-    :title="'Projeção com base não media de crescimento ' + this.getGeneralAverage() + '%'"
+    :title="'Projeção com base na média de crescimento ' + this.getGeneralAverage() + '%'"
   >
     <BarChart :chartId="$options.name" :data="data" />
   </DefaultCard>
