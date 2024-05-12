@@ -1,11 +1,8 @@
 import './assets/main.css'
-
-import "bootstrap/dist/css/bootstrap.css"
-
-import { createApp } from 'vue'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/js/bootstrap.js'
 import App from './App.vue'
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 
-
-createApp(App).mount('#app')
-
-import "bootstrap/dist/js/bootstrap.js"
+createApp(App).use(createPinia()).mount('#app')
