@@ -1,20 +1,23 @@
 <script>
-import datasetSalaries from '@/assets/datasets/minimumSalariesReal.json'
+import { useMinimumSalaryRealStore } from '@/stores/MinimumSalaryRealStore.js'
 
 export default {
   name: 'MinimumSalaryReal',
   data() {
-    return {
-      data: {
-        labels: Object.keys(datasetSalaries),
-        datasets: [
-          {
-            label: 'Reais R$',
-            data: Object.values(datasetSalaries),
-            borderWidth: 1
-          }
-        ]
-      }
+    return { data: null }
+  },
+  mounted: function () {
+    const minimumSalaryReal = useMinimumSalaryRealStore()
+
+    this.data = {
+      labels: minimumSalaryReal.years,
+      datasets: [
+        {
+          label: 'Reais R$',
+          data: minimumSalaryReal.salaries,
+          borderWidth: 1
+        }
+      ]
     }
   }
 }
@@ -22,7 +25,7 @@ export default {
 
 <template>
   <DefaultCard :title="'Salário mínimo anual'">
-    <BarChart :chartId="$options.name" :data="data" />
+    <BarChart v-if="data" :chartId="$options.name" :data="data" />
   </DefaultCard>
 </template>
 
