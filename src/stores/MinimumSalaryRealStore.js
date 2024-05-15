@@ -6,18 +6,16 @@ export const useMinimumSalaryRealStore = defineStore('MinimumSalaryReal', {
   state() {
     return {
       salaries: Object.values(datasetSalaries),
+      countSalaries: Object.values(datasetSalaries).length,
       years: Object.keys(datasetSalaries)
     }
   },
 
   getters: {
-    getCountSalaries() {
-      return this.salaries.length
-    },
     getSalaryGrowthPercentages() {
       let percentages = []
 
-      for (let i = 0; i < this.getCountSalaries(); i++) {
+      for (let i = 0; i < this.countSalaries; i++) {
         const isFirstPositionOfSalaryWithoutPreviusToCompare = i === 0
 
         if (isFirstPositionOfSalaryWithoutPreviusToCompare) {

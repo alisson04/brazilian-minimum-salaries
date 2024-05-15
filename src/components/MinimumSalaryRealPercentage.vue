@@ -1,46 +1,33 @@
 <script>
-import datasetSalaries from '@/assets/datasets/minimumSalariesReal.json'
+import { useMinimumSalaryRealStore } from '@/stores/MinimumSalaryRealStore.js'
+import { mapState } from 'pinia'
 
 export default {
   name: 'MinimumSalaryRealPercentage',
   data() {
-    return {
-      data: {
-        labels: Object.keys(datasetSalaries),
-        datasets: [
-          {
-            label: 'Crescimento %',
-            data: this.getSalariesPercentage(),
-            borderWidth: 1
-          }
-        ]
-      }
+    return { data: null }
+  },
+  mounted: function () {
+    this.data = {
+      labels: this.years,
+      datasets: [
+        {
+          label: 'Crescimento %',
+          data: this.getSalaryGrowthPercentages,
+          borderWidth: 1
+        }
+      ]
     }
   },
-  methods: {
-    getSalariesPercentage() {
-      let percentages = []
-      const salaries = Object.values(datasetSalaries)
-
-      for (let i = 0; i < salaries.length; i++) {
-        if (i === 0) {
-          percentages.push(0)
-        } else {
-          const percentage = ((salaries[i] - salaries[i - 1]) / salaries[i - 1]) * 100
-
-          percentages.push(percentage)
-        }
-      }
-
-      return percentages
-    }
+  computed: {
+    ...mapState(useMinimumSalaryRealStore, ['salaries', 'years', 'getSalaryGrowthPercentages'])
   }
 }
 </script>
 
 <template>
   <DefaultCard :title="'Crescimento em relação ao ano anterior'">
-    <BarChart :chartId="$options.name" :data="data" />
+    <BarChart v-if="data" :chartId="$options.name" :data="data" />
   </DefaultCard>
 </template>
 
