@@ -3,20 +3,20 @@ import Chart from 'chart.js/auto'
 
 export default {
   props: ['chartId', 'data'],
-  mounted() {
-    const ctx = document.getElementById(this.chartId)
+  watch: {
+    data() {
+      if (this.data) {
+        const ctx = document.getElementById(this.chartId)
 
-    new Chart(ctx, {
-      type: 'bar',
-      data: this.data,
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
+        new Chart(ctx, {
+          type: 'bar',
+          data: this.data,
+          options: {
+            scales: { y: { beginAtZero: true } }
           }
-        }
+        })
       }
-    })
+    }
   }
 }
 </script>

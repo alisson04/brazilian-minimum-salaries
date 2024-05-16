@@ -32,7 +32,7 @@ export default {
   <DefaultCard
     :title="'Projeção com base na média de crescimento ' + this.getAveragePercentageGrowth + '%'"
   >
-    <BarChart v-if="data" :chartId="$options.name" :data="data" />
+    <BarChart :chartId="$options.name" :data="data" />
   </DefaultCard>
 </template>
 
