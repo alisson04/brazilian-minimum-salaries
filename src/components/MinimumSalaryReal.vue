@@ -1,5 +1,6 @@
 <script>
 import { useMinimumSalaryRealStore } from '@/stores/MinimumSalaryRealStore.js'
+import { mapState } from 'pinia'
 
 export default {
   name: 'MinimumSalaryReal',
@@ -7,18 +8,13 @@ export default {
     return { data: null }
   },
   mounted: function () {
-    const minimumSalaryReal = useMinimumSalaryRealStore()
-
     this.data = {
-      labels: minimumSalaryReal.years,
-      datasets: [
-        {
-          label: 'Reais R$',
-          data: minimumSalaryReal.salaries,
-          borderWidth: 1
-        }
-      ]
+      labels: this.years,
+      datasets: [{ label: 'Reais R$', data: this.salaries, borderWidth: 1 }]
     }
+  },
+  computed: {
+    ...mapState(useMinimumSalaryRealStore, ['salaries', 'years'])
   }
 }
 </script>
