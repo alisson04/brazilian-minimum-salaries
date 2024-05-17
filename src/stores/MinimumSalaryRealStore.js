@@ -7,17 +7,62 @@ export const useMinimumSalaryRealStore = defineStore('MinimumSalaryReal', {
     return {
       countSalaries: Object.values(datasetSalaries).length,
       salaries: Object.values(datasetSalaries),
-      years: Object.keys(datasetSalaries)
+      years: Object.keys(datasetSalaries),
+      yearToStopPredction: 2060
     }
   },
 
   actions: {
     increaseByPercentage(value, percentage) {
       return value + value * (percentage / 100)
+    },
+    predictNextNumber(sequence) {
+      const n = sequence.length
+
+      // Calculando a média dos índices e dos valores da sequência
+      let sumX = 0
+      let sumY = 0
+      for (let i = 0; i < n; i++) {
+        sumX += i
+        sumY += sequence[i]
+      }
+      const meanX = sumX / n
+      const meanY = sumY / n
+
+      // Calculando os coeficientes da regressão linear
+      let numerator = 0
+      let denominator = 0
+      for (let i = 0; i < n; i++) {
+        numerator += (i - meanX) * (sequence[i] - meanY)
+        denominator += Math.pow(i - meanX, 2)
+      }
+      const slope = numerator / denominator
+      const intercept = meanY - slope * meanX
+
+      // Estimando o próximo número
+      const nextIndex = n
+      const nextNumber = slope * nextIndex + intercept
+
+      return nextNumber
     }
   },
 
   getters: {
+    getLastYear() {
+      return this.years[this.years.length - 1]
+    },
+    getSalariesWithProjectionByLinearRegression() {
+      let salaryPrediction = Object.assign({}, datasetSalaries)
+
+      const nextYear = currency(this.getLastYear).add(1).value
+
+      for (var i = nextYear; i <= this.yearToStopPredction; i++) {
+        let predictedValue = this.predictNextNumber(Object.values(salaryPrediction))
+        salaryPrediction[i] = predictedValue
+      }
+
+      return salaryPrediction
+    },
     getSalaryGrowthPercentages() {
       let percentages = []
 
@@ -54,7 +99,7 @@ export const useMinimumSalaryRealStore = defineStore('MinimumSalaryReal', {
       const generalAverage = this.getAveragePercentageGrowth
       let salariesProjection = { ...datasetSalaries }
 
-      for (let i = nextYear; i <= 2060; i++) {
+      for (let i = nextYear; i <= this.yearToStopPredction; i++) {
         const previousSalary = salariesProjection[i - 1]
         salariesProjection[i] = this.increaseByPercentage(previousSalary, generalAverage)
       }
