@@ -13,37 +13,20 @@ export const useMinimumSalaryRealStore = defineStore('MinimumSalaryReal', {
   },
 
   actions: {
-    increaseByPercentage(value, percentage) {
-      return value + value * (percentage / 100)
-    },
     predictNextNumber(sequence) {
-      const n = sequence.length
-
-      // Calculando a média dos índices e dos valores da sequência
-      let sumX = 0
-      let sumY = 0
-      for (let i = 0; i < n; i++) {
-        sumX += i
-        sumY += sequence[i]
+      // Calcula a diferença média entre os números consecutivos na sequência
+      let totalDiference = 0
+      for (let i = 1; i < sequence.length; i++) {
+        totalDiference += sequence[i] - sequence[i - 1]
       }
-      const meanX = sumX / n
-      const meanY = sumY / n
+      let averageDireference = totalDiference / (sequence.length - 1)
 
-      // Calculando os coeficientes da regressão linear
-      let numerator = 0
-      let denominator = 0
-      for (let i = 0; i < n; i++) {
-        numerator += (i - meanX) * (sequence[i] - meanY)
-        denominator += Math.pow(i - meanX, 2)
-      }
-      const slope = numerator / denominator
-      const intercept = meanY - slope * meanX
-
-      // Estimando o próximo número
-      const nextIndex = n
-      const nextNumber = slope * nextIndex + intercept
+      let nextNumber = sequence[sequence.length - 1] + averageDireference
 
       return nextNumber
+    },
+    increaseByPercentage(value, percentage) {
+      return value + value * (percentage / 100)
     }
   },
 
@@ -51,7 +34,7 @@ export const useMinimumSalaryRealStore = defineStore('MinimumSalaryReal', {
     getLastYear() {
       return this.years[this.years.length - 1]
     },
-    getSalariesWithProjectionByLinearRegression() {
+    getSalariesWithProjectionByArithmeticSequence() {
       let salaryPrediction = Object.assign({}, datasetSalaries)
 
       const nextYear = currency(this.getLastYear).add(1).value

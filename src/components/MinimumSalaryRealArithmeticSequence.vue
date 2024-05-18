@@ -3,24 +3,27 @@ import { useMinimumSalaryRealStore } from '@/stores/MinimumSalaryRealStore.js'
 import { mapState } from 'pinia'
 
 export default {
-  name: 'MinimumSalaryRealLinearRegression',
+  name: 'MinimumSalaryRealArithmeticSequence',
   data() {
     return { data: null }
   },
   mounted: function () {
     this.data = {
-      labels: Object.keys(this.getSalariesWithProjectionByLinearRegression),
+      labels: Object.keys(this.getSalariesWithProjectionByArithmeticSequence),
       datasets: [
         {
           label: 'Crescimento %',
-          data: this.getSalariesWithProjectionByLinearRegression,
+          data: this.getSalariesWithProjectionByArithmeticSequence,
           borderWidth: 1
         }
       ]
     }
   },
   computed: {
-    ...mapState(useMinimumSalaryRealStore, ['years', 'getSalariesWithProjectionByLinearRegression'])
+    ...mapState(useMinimumSalaryRealStore, [
+      'years',
+      'getSalariesWithProjectionByArithmeticSequence'
+    ])
   }
 }
 </script>

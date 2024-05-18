@@ -16,7 +16,7 @@ export default {
     <br />
     <MinimumSalaryRealAverageGrowth />
     <br />
-    <MinimumSalaryRealLinearRegression />
+    <MinimumSalaryRealArithmeticSequence />
   </main>
 </template>
 
