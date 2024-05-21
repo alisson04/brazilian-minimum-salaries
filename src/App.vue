@@ -5,13 +5,22 @@ export default {
 </script>
 
 <template>
-  <main class="container py-3">
-    <MinimumSalaryReal />
-    <br />
-    <MinimumSalaryRealPercentage />
-    <br />
-    <MinimumSalaryRealAverageGrowth />
-    <br />
-    <MinimumSalaryRealArithmeticSequence />
+  <main class="container-fluid pt-3">
+    <DefaultCard :title="'Salário mínimo (Real R$)'">
+      <div class="row">
+        <div class="col-6 p-2">
+          <MinimumSalaryReal />
+        </div>
+        <div class="col-6 p-2">
+          <MinimumSalaryRealPercentage />
+        </div>
+        <div class="col-6 p-2">
+          <MinimumSalaryRealAverageGrowth />
+        </div>
+        <div class="col-6 p-2">
+          <MinimumSalaryRealArithmeticSequence />
+        </div>
+      </div>
+    </DefaultCard>
   </main>
 </template>
