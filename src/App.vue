@@ -1,13 +1,24 @@
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data() {
+    return { resizeKey: 0 }
+  },
+  mounted() {
+    window.addEventListener('resize', this.handleResize)
+  },
+  methods: {
+    handleResize() {
+      this.resizeKey += 1
+    }
+  }
 }
 </script>
 
 <template>
   <main class="container-fluid pt-3">
     <DefaultCard :title="'Salário mínimo (Real R$)'">
-      <div class="row">
+      <div :key="resizeKey" class="row">
         <div class="col-sm-12 col-lg-6 p-2">
           <MinimumSalaryReal />
         </div>
