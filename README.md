@@ -1,6 +1,6 @@
 # brazilian-salaries
 
-This template should help get you started developing with Vue 3 in Vite.
+This project intends to show the evolution of the Brazilian minimum wage since the creation of the "Real (R$)" as currency.
 
 ## Recommended IDE Setup
 
