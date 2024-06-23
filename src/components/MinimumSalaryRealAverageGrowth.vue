@@ -30,7 +30,9 @@ export default {
 
 <template>
   <DefaultCard
-    :title="'Projeção com base na média de crescimento ' + this.getAveragePercentageGrowth + '%'"
+    :title="
+      'Salário mínimo - Projeção por percentual médio(' + this.getAveragePercentageGrowth + '%)'
+    "
   >
     <BarChart :chartId="$options.name" :data="data" />
   </DefaultCard>

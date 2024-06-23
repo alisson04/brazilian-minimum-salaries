@@ -29,7 +29,7 @@ export default {
 </script>
 
 <template>
-  <DefaultCard :title="'Projeção com regressão linear'">
+  <DefaultCard :title="'Salário mínimo - Projeção por sequência aritmetica'">
     <BarChart :chartId="$options.name" :data="data" />
   </DefaultCard>
 </template>

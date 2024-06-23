@@ -20,7 +20,7 @@ export default {
 </script>
 
 <template>
-  <DefaultCard :title="'Salário mínimo anual'">
+  <DefaultCard :title="'Salário mínimo - Histórico'">
     <BarChart :chartId="$options.name" :data="data" />
   </DefaultCard>
 </template>

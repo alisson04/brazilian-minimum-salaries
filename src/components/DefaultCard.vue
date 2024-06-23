@@ -7,7 +7,9 @@ export default {
 
 <template>
   <div class="card">
-    <div class="card-header text-center">{{ title }}</div>
+    <div class="card-header text-center text-secondary">
+      <h2>{{ title }}</h2>
+    </div>
     <div class="card-body"><slot></slot></div>
   </div>
 </template>
