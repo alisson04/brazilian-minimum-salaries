@@ -1,15 +1,19 @@
 <script>
+import _ from 'lodash'
+
 export default {
   name: 'App',
   data() {
     return { resizeKey: 0 }
   },
   mounted() {
-    window.addEventListener('resize', this.handleResize)
+    this.debouncedInputHandler = _.debounce(this.handleResize, 500)
+    window.addEventListener('resize', this.debouncedInputHandler)
   },
   methods: {
     handleResize() {
       this.resizeKey += 1
+      console.log(this.resizeKey)
     }
   }
 }
