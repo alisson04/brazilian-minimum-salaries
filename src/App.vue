@@ -13,7 +13,6 @@ export default {
   methods: {
     handleResize() {
       this.resizeKey += 1
-      console.log(this.resizeKey)
     }
   }
 }
