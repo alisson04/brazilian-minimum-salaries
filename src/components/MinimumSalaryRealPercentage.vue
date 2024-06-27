@@ -12,7 +12,7 @@ export default {
       labels: this.years,
       datasets: [
         {
-          label: 'Crescimento %',
+          label: 'Reais R$',
           data: this.getSalaryGrowthPercentages,
           borderWidth: 1
         }

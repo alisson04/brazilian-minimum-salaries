@@ -2,13 +2,7 @@
 
 This project intends to show the evolution of the Brazilian minimum wage since the creation of the "Real (R$)" as currency.
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+[CLICK HERE to see this project online](https://salario-minimo-brasileiro.netlify.app/)
 
 ## Project Setup
 
