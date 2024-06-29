@@ -8,9 +8,9 @@ export default {
 <template>
   <div class="card">
     <div class="card-header text-center text-secondary">
-      <h2>{{ title }}</h2>
+      <h4 class="m-0">{{ title }}</h4>
     </div>
-    <div class="card-body"><slot></slot></div>
+    <div :style="{ maxHeight: '30vh' }" class="card-body"><slot></slot></div>
   </div>
 </template>
 
