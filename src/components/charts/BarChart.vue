@@ -12,6 +12,7 @@ export default {
           type: 'bar',
           data: this.data,
           options: {
+            maintainAspectRatio: false,
             scales: { y: { beginAtZero: true } }
           }
         })
@@ -22,7 +23,9 @@ export default {
 </script>
 
 <template>
-  <canvas :id="chartId"></canvas>
+  <div class="chart-container" style="position: relative; min-height: 30vh">
+    <canvas :id="chartId"></canvas>
+  </div>
 </template>
 
 <style scoped></style>
