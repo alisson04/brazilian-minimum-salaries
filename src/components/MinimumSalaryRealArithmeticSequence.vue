@@ -12,7 +12,7 @@ export default {
       labels: Object.keys(this.getSalariesWithProjectionByArithmeticSequence),
       datasets: [
         {
-          label: 'Crescimento %',
+          label: 'Reais R$',
           data: this.getSalariesWithProjectionByArithmeticSequence,
           borderWidth: 1
         }
