@@ -42,10 +42,16 @@ export default {
       <a
         href="https://github.com/alisson04/brazilian-minimum-salaries"
         target="_blank"
-        class="text-muted nav-link d-flex flex-column align-items-center"
+        class="text-muted nav-link m-3"
       >
-        <i class="fa fa-2x fa-github" aria-hidden="true"></i>
-        <p>Ver no GitHub</p>
+        <i class="fa fa-2x fa-github" aria-hidden="true" title="Ver no GitHub"></i>
+      </a>
+      <a
+        href="https://www.linkedin.com/in/alisson-fernandes-6b761a143/"
+        target="_blank"
+        class="text-muted nav-link m-3"
+      >
+        <i class="fa fa-2x fa-linkedin-square" aria-hidden="true" title="Ver meu Linkedin"></i>
       </a>
     </footer>
   </main>
