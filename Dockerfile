@@ -18,5 +18,5 @@ COPY . .
 # compila a aplicação de produção com minificação
 RUN npm run build
 
-EXPOSE 8080
-CMD [ "http-server", "dist" ]
+EXPOSE 8081
+CMD [ "http-server", "-p", "8081", "dist" ]
