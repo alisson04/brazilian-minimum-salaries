@@ -20,20 +20,27 @@ export default {
 </script>
 
 <template>
-  <main class="container-fluid pt-3">
+  <main class="container pt-3">
     <h1 class="text-center text-secondary">Salário mínimo - Histórico e projeções</h1>
-    <hr class="my-4" />
-    <div :key="resizeKey" class="row">
-      <div class="col-sm-12 col-lg-6 p-2">
-        <MinimumSalaryReal />
+
+    <nav>
+      <div class="nav nav-underline">
+        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#nav-history">
+          Histórico
+        </button>
+        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#nav-projection">
+          Projeções
+        </button>
       </div>
-      <div class="col-sm-12 col-lg-6 p-2">
+    </nav>
+
+    <div class="tab-content" :key="resizeKey">
+      <div class="tab-pane fade show active p-2" id="nav-history">
+        <MinimumSalaryReal />
         <MinimumSalaryRealPercentage />
       </div>
-      <div class="col-sm-12 col-lg-6 p-2">
+      <div class="tab-pane fade" id="nav-projection">
         <MinimumSalaryRealAverageGrowth />
-      </div>
-      <div class="col-sm-12 col-lg-6 p-2">
         <MinimumSalaryRealArithmeticSequence />
       </div>
     </div>
