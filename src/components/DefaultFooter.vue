@@ -6,7 +6,7 @@ export default {
 </script>
 
 <template>
-  <footer class="d-flex justify-content-center pb-2 pt-4 mt-5 border-top">
+  <footer class="d-flex justify-content-center pb-2 pt-4 border-top bg-body-tertiary">
     <a
       href="https://github.com/alisson04/brazilian-minimum-salaries"
       target="_blank"

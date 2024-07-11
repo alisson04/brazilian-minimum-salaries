@@ -20,31 +20,33 @@ export default {
 </script>
 
 <template>
-  <main class="container pt-3">
-    <h1 class="text-center text-secondary">Salário mínimo - Histórico e projeções</h1>
+  <DefaultHeader />
 
-    <nav>
-      <div class="nav nav-underline">
-        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#nav-history">
-          Histórico
-        </button>
-        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#nav-projection">
-          Projeções
-        </button>
-      </div>
-    </nav>
+  <main>
+    <div class="container">
+      <nav>
+        <div class="nav nav-underline">
+          <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#nav-history">
+            Histórico
+          </button>
+          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#nav-projection">
+            Projeções
+          </button>
+        </div>
+      </nav>
 
-    <div class="tab-content" :key="resizeKey">
-      <div class="tab-pane fade show active p-2" id="nav-history">
-        <MinimumSalaryReal />
-        <MinimumSalaryRealPercentage />
-      </div>
-      <div class="tab-pane fade" id="nav-projection">
-        <MinimumSalaryRealAverageGrowth />
-        <MinimumSalaryRealArithmeticSequence />
+      <div class="tab-content p-2" :key="resizeKey">
+        <div class="tab-pane fade show active" id="nav-history">
+          <MinimumSalaryReal />
+          <MinimumSalaryRealPercentage />
+        </div>
+        <div class="tab-pane fade" id="nav-projection">
+          <MinimumSalaryRealAverageGrowth />
+          <MinimumSalaryRealArithmeticSequence />
+        </div>
       </div>
     </div>
-
-    <DefaultFooter />
   </main>
+
+  <DefaultFooter />
 </template>
