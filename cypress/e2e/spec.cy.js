@@ -1,5 +1,7 @@
-describe('template spec', () => {
-  it('passes', () => {
-    cy.visit('https://example.cypress.io')
+describe('header', () => {
+  it('should render', () => {
+    cy.visit('http://127.0.0.1:8081/');
+
+    cy.contains('Salário mínimo - Histórico e projeções')
   })
 })

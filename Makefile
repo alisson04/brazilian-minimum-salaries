@@ -1,10 +1,14 @@
 IMAGE_NAME=alissonfernandesdev/brazilian-minimum-salaries
+CONTAINER_NAME=brazilian-minimum-salaries
 
 build:
 	docker build -t $(IMAGE_NAME) .
 
 run:
-	docker run -it -p 8081:8081 --rm --name brazilian-minimum-salaries $(IMAGE_NAME)
+	docker run -d -p 8081:8081 --rm --name $(CONTAINER_NAME) $(IMAGE_NAME)
 
-start:
-	docker exec dockerize-vuejs-app-1 npm run dev
+stop:
+	docker stop $(CONTAINER_NAME)
+
+test:
+	docker exec -it $(CONTAINER_NAME) npx cypress run
