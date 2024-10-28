@@ -1,4 +1,4 @@
-FROM node:lts-alpine
+FROM cypress/base:latest
 
 # instala um servidor http simples para servir conteúdo estático
 RUN npm install -g http-server
@@ -9,11 +9,14 @@ WORKDIR /app
 # copia os arquivos 'package.json' e 'package-lock.json' (se disponível)
 COPY package*.json ./
 
+# copia arquivos e pastas para o diretório atual de trabalho (pasta 'app')
+COPY . .
+
 # instala dependências do projeto
 RUN npm install
 
-# copia arquivos e pastas para o diretório atual de trabalho (pasta 'app')
-COPY . .
+# Instale o binário do Cypress
+RUN npx cypress install
 
 # compila a aplicação de produção com minificação
 RUN npm run build
